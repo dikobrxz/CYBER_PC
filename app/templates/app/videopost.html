@@ -1,0 +1,23 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="header"><h1>Видео</h1></div>
+<div class="feedback">
+    <div style="display:flex; flex-direction:row; gap:1rem;">
+        <div>
+            <p class="text1">Видео-ролик 1</p>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/tL9db3VKXsQ?si=NoGiJGKj1ZshKDpb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div>
+            <p class="text1">Видео-ролик 2</p>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/NOuIXUmFc3g?si=KnEOkwfn6MIAsdOC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

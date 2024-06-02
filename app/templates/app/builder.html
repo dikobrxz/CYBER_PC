@@ -1,0 +1,44 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<div id="maintext">
+    <h1>Конфигуратор ПК</h1>
+    <p class="text">Здесь вы можете собрать свой собственный ПК из комлпектующих, представленных в нашем ассортименте!</p>
+    <br />
+
+    {% load static %}
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="{% static 'app/content/ban1.png'%} " alt="Первый слайд" class="img-responsive" />
+                <a class="carousel-link" >Игровые сборки</a>
+            </div>
+            <div class="item">
+                <img src="{% static 'app/content/ban2.png'%} " alt="Второй слайд" class="img-responsive" />
+                <a class="carousel-link" >Серверные решения</a>
+            </div>
+            <div class="item">
+                <img src="{% static 'app/content/ban3.png'%} " alt="Третий слайд" class="img-responsive" />
+                <a class="carousel-link" >Кастомная сборка ПК</a>
+            </div>
+        </div>
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+        </ol>
+        <div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

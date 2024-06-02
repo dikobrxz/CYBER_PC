@@ -1,0 +1,14 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<div id="links">
+    <div class="text"><h1>{{ title }}</h1></div>
+    <p><a href="https://hyperpc.ru/" target="_blank"> <img src="{% static 'app/content/logo1.png' %}" alt="Logo 1" width="200" height="30" /></a></p>
+    <p><a href="https://www.dns-shop.ru/" target="_blank"> <img src="{% static 'app/content/logo2.png' %}" alt="Logo 2" width="150" height="38" /></a></p>
+</div>
+
+
+{% endblock  %}

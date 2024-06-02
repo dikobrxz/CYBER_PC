@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "CYBER_PC", "CYBER_PC.pyproj", "{3C4B90E3-C547-4B22-A470-D805F1BC177F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C4B90E3-C547-4B22-A470-D805F1BC177F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C4B90E3-C547-4B22-A470-D805F1BC177F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C4B90E3-C547-4B22-A470-D805F1BC177F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C4B90E3-C547-4B22-A470-D805F1BC177F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85E2413A-835B-4807-9B5E-D9A69EAFFFE2}
+	EndGlobalSection
+EndGlobal

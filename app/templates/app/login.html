@@ -1,0 +1,54 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<script>
+    $(document).ready(function () {
+        console.log('aboba')
+        $('input').focus(function () {
+            $(this).css('background-color', 'white');
+        });
+        $('input').blur(function () {
+            $(this).css('background-color', 'lightgrey');
+        })
+    });
+</script>
+
+<div class="feedback">
+    <form method="post">
+        {% csrf_token %}
+        <h1 style="margin-bottom: 30px; font-size: 21px;">Используйте свой аккаунт, чтобы авторизоваться</h1>
+        <!--<label for="id_username" class="text1">Имя пользователя</label>
+        <div class="text1">
+            {{ form.username }}
+        </div>
+        <label for="id_password" class="text1">Пароль</label>
+        <div class="text1">
+            {{ form.password }}
+        </div>-->
+        <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+        {{ form.username }}<br /><br />
+        <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+        {{ form.password }}<br /><br />
+        <div class="col-md-offset-2 col-md-10">
+            <input type="hidden" name="next" value="/" />
+        </div>
+        {% if form.errors %}
+        <p class="validation-summary-errors">Пожалуйста, введите корректное имя пользователя и пароль.</p>
+        {% endif %}
+        <div>
+            <button class="submit" type="submit">Войти</button>
+        </div>
+    </form>                 
+</div>
+    <div class="col-md-4">
+        <section id="socialLoginForm"></section>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+{% load static %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}

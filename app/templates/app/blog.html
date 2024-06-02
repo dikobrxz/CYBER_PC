@@ -1,0 +1,23 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div id="maintext" style="transform: translate(-50%, -50%); padding-top: 70px; line-height: 30px;">
+    <div style="position: absolute; transform: translate(10%, -150%); font-size: 20px;"><h1>{{ title }}</h1></div>
+    <div class="blog">
+        {% for post in posts %}
+        <hr />
+        <p style="font-size: 21px;"> {{post.title}} </p>
+        <p> {{post.posted}} </p>
+        <p class="text2"> {{post.description}} </p>
+        <p><a class="submit" href="{% url 'blogpost' parametr=post.id %}"> Читать далее </a></p>
+        <hr />
+        <br />
+        {% endfor %}
+    </div>
+    {% if user.is_superuser %}
+    <a class="submit" href="{% url 'newpost' %}"> Добавить статью</a>
+    {% endif %}
+</div>
+
+{% endblock %}

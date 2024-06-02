@@ -1,0 +1,52 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<div id="maintext" style="transform: translate(-50%, -50%); padding-bottom: 50px; line-height: 30px;">
+    <div class="text"><h1>{{post_1.title}}</h1></div>
+    <div class="blogpost">
+        {% if post_1.image and post_1.image.url != '/media/temp.jpg'%}
+        <div class="picturepost">
+            <img src="{{ post_1.image.url }}" alt="Картинка статьи блога" />
+        </div>
+        {% endif %}
+        <p class="textcom"> {{post_1.content|linebreaksbr}} </p>
+    </div>
+    
+    <div class="comment">
+        {% if user.is_authenticated %}
+
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                <p style="font-size: 20px; line-height: 100%; padding-bottom: 10px;">Добавить комментарий</p>
+                <div style="font-size: 20px; line-height: 100%; padding-bottom: 10px;">
+                    {{form.as_p}}
+                </div>
+                <div class="button">
+                    <button type="submit" class="submit"> Отправить </button>
+                </div>
+            </form>
+        </div>
+        <hr />
+        <br />
+        {% else %}
+        <div>
+            <p class="textcom"> Для добавления своего комментария, пожалуйста, авторизуйтесь </p>
+            <hr />
+            <br />
+        </div>
+
+        {% endif %}
+        <div>
+            {% for comment in comments %}
+            <p class="textcom"> {{comment.author}} </p>
+            <p class="textcom"> {{comment.date}} </p>
+            <p class="textcom"> {{comment.text|linebreaksbr}} </p>
+            <hr />
+            <br />
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
