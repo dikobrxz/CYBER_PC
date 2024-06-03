@@ -7,7 +7,7 @@
     <div class="blog">
         {% for post in posts %}
         <hr />
-        <p style="font-size: 21px;"> {{post.title}} </p>
+        <p style="font-size: 24px; font-family: fantasy;"> {{post.title}} </p>
         <p> {{post.posted}} </p>
         <p class="text2"> {{post.description}} </p>
         <p><a class="submit" href="{% url 'blogpost' parametr=post.id %}"> Читать далее </a></p>
