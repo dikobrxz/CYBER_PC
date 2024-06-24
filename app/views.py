@@ -3,12 +3,13 @@ Definition of views.
 """
 
 from datetime import datetime
+from email.mime import image
 import imp
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpRequest
 from app.forms import FeedbackForm
 from django.contrib.auth.forms import UserCreationForm
-from django.db import models
+from django.db import models, connection
 from .models import Blog
 from .models import Comment
 from .forms import CommentForm
@@ -143,7 +144,9 @@ def registration(request):
 def blog(request):
     """Renders the blog page."""
     assert isinstance(request, HttpRequest)
-    posts = Blog.objects.all() # запрос на выбор всех статей блога из модели
+    #posts = Blog.objects.all() #ORM
+    posts=Blog.objects.raw("SELECT * FROM Posts") #SQL
+    assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/blog.html',
@@ -157,6 +160,7 @@ def blog(request):
 def blogpost(request, parametr):
     """Renders the blogpost page."""
     assert isinstance(request, HttpRequest)
+    post_1 = Blog.objects.raw("SELECT * FROM Posts WHERE id = %s", [parametr])
     post_1 = Blog.objects.get(id=parametr) # запрос на выбор конкретной статьи по параметру
     comments = Comment.objects.filter(post=parametr)
     if request.method == "POST": # после отправки данных формы на сервер методом POST
@@ -187,10 +191,22 @@ def newpost(request):
     if request.method == "POST": # после отправки данных формы на сервер методом POST
         blogform = BlogForm(request.POST, request.FILES)
         if blogform.is_valid():
-            blog_f = blogform.save(commit=False)
-            blog_f.author = request.user
-            blog_f.posted = datetime.now() 
-            blog_f.save() # сохраняем изменения после добавления полей
+            # blog_f=blogform.save(commit=False)
+            # blog_f.posted=datetime.now()
+            # blog_f.author=request.user
+            # blog_f.save()
+            # newblog=Blog.objects.create( #ORM
+            #     title=blogform.cleaned_data['title'],
+            #     content=blogform.cleaned_data['content'],
+            #     image=blogform.cleaned_data['image'],
+            #     posted=datetime.now(),
+            #     author=request.user,)
+            with connection.cursor() as cursor:
+                cursor.execute("INSERT INTO Posts (title, description, content, image, posted, author_id) VALUES (%s, %s, %s, %s, %s, %s)", 
+                [blogform.cleaned_data['title'], blogform.cleaned_data['description'], blogform.cleaned_data['content'], blogform.cleaned_data['image'], 
+                datetime.now(), request.user.id])
+                newblog=Blog.objects.get(title=blogform.cleaned_data['title'])
+                return redirect('blog')
         return redirect('blog') # переадресация на ту же страницу статьи после отправки комментария
     else:
         blogform = BlogForm() # создание формы для ввода комментария
@@ -204,6 +220,14 @@ def newpost(request):
             'year':datetime.now().year,
         }
     )
+def delete_post(request, post_id):
+    post = get_object_or_404(Blog, id=post_id, author=request.user)
+    if request.method == "POST":
+       post.delete()   # Удаление постаа с использованием ORM
+       # Выполнение SQL запроса для удаления данных
+        # with connection.cursor() as cursor:
+        #     cursor.execute("DELETE FROM Posts WHERE id = %s", [post_id])
+    return redirect('blog')
 def videopost(request):
     """Renders the about page."""
     assert isinstance(request, HttpRequest)
