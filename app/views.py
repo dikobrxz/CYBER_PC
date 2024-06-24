@@ -220,6 +220,38 @@ def newpost(request):
             'year':datetime.now().year,
         }
     )
+def edit_post(request, post_id):
+    post = get_object_or_404(Blog, id=post_id)
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            # form.save()  # Сохранение данных формы в базе данных
+            # return redirect('blogpost', parametr=post_id)  # Перенаправление на страницу поста после редактирования
+
+            title = form.cleaned_data['title']
+            content = form.cleaned_data['content']
+            
+            # Получаем имя файла, если есть
+            if 'image' in form.cleaned_data and form.cleaned_data['image']:
+                image = form.cleaned_data['image'].name
+            else:
+                image = post.image.name  # или post.image, в зависимости от структуры модели
+            
+
+            # Обовление данных с использованием SQL-запроса
+            with connection.cursor() as cursor:
+                cursor.execute(""" UPDATE Posts SET title = %s, content = %s, image = %s WHERE id = %s """, [title, content, image, post_id])
+
+            return redirect('blogpost', parametr=post_id)  # Перенаправление на страницу поста после редактирования
+
+    else:
+        form = BlogForm(instance=post)
+    
+    return render(request, 'app/edit_post.html', {
+        'form': form,
+        'post': post
+    })
+
 def delete_post(request, post_id):
     post = get_object_or_404(Blog, id=post_id, author=request.user)
     if request.method == "POST":
