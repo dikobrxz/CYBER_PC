@@ -37,6 +37,10 @@
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\tests.py" />
+    <Compile Include="app\tests\test_models.py" />
+    <Compile Include="app\tests\test_views.py" />
+    <Compile Include="app\tests\test_forms.py" />
+    <Compile Include="app\tests\__init__.py" />
     <Compile Include="app\views.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
@@ -56,6 +60,8 @@
     <Folder Include="app\static\app\scripts\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
+    <Folder Include="app\tests\" />
+    <Folder Include="app\tests\__pycache__\" />
     <Folder Include="CYBER_PC\" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +75,7 @@
     <Content Include="app\templates\app\newpost.html" />
     <Content Include="app\templates\app\registration.html" />
     <Content Include="app\templates\app\videopost.html" />
+    <Content Include="app\tests\__pycache__\__init__.cpython-39.pyc" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
