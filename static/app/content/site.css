@@ -1,6 +1,6 @@
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -14,6 +14,7 @@ input,
 select,
 textarea {
     max-width: 280px;
+    color: black;
 }
 
 /* styles for validation helpers */
@@ -39,4 +40,493 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+}
+
+#container {
+    background-image: url(desktop.jpg);
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100vh
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial';
+    color: rgb(255, 255, 255)
+}
+
+.header h1 {
+    position: absolute;
+    top: 25%;
+    left: -25%;
+    transform: translate(-50%, -50%);
+    font-size: 40px
+}
+
+.footer {
+    background-color: rgba(72, 24, 103, 0.59);
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    line-height: 100%;
+    width: 100%;
+}
+
+.footer_elem {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+}
+
+.footer span {
+    margin: 13px;
+    font-size: 18px;
+    font-weight: bold
+}
+
+#maintext {
+    background-color: rgba(72, 24, 103, 0.59);
+    position: absolute;
+    padding: 10px 10px;
+    border-radius: 20px;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -40%);
+    line-height: 50px;
+}
+
+.text {
+    font-size: 21px;
+    line-height: 130%;
+    text-indent: 10px;
+    text-align: left;
+}
+
+.text1 {
+    font-size: 18px;
+    line-height: 100%;
+    text-indent: 10px;
+    text-align: center;
+}
+text2 {
+    font-size: 18px;
+    line-height: 100%;
+    text-indent: 10px;
+}
+
+.text4 {
+    font-size: 20px;
+    line-height: 100%;
+    text-indent: 10px;
+    margin: 10px
+}
+
+.feedback {
+    background-color: rgba(72, 24, 103, 0.59);
+    position: absolute;
+    padding: 20px 20px;
+    border-radius: 10px;
+    top: 48%;
+    left: 40%;
+    transform: translate(-50%, -40%)
+}
+
+.feedback1 {
+    background-color: rgba(72, 24, 103, 0.59);
+    position: absolute;
+    padding: 10px 10px;
+    border-radius: 10px;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -40%)
+}
+
+    .feedback1 ul li {
+        line-height: 2;
+        list-style: none;
+        font-size: 21px;
+    }
+
+    .feedback1 span {
+        font-weight: bold;
+        color: rgb(147, 112, 219);
+    }
+
+.submit {
+    border: none;
+    text-decoration: none;
+    font-size: 20px;
+    background: linear-gradient(#d298ff 0 0) bottom /var(--t, 0) 2px no-repeat;
+    transition: .5s;
+    cursor: pointer;
+}
+    .submit:hover {
+        --t: 100%
+    }
+.label {
+    color: black;
+    font-size: 14px;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+
+    .label option {
+        color: black;
+        font-size: 14px;
+    }
+
+.button1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding-left: 30px;
+    position: fixed;
+    top: 35px;
+}
+
+    .button1 ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+        .button1 ul li {
+            display: inline-block;
+            padding: 20px;
+        }
+
+            .button1 ul li a {
+                text-decoration: none;
+                font-size: 18px;
+                background: linear-gradient(#d298ff 0 0) bottom /var(--t, 0) 2px no-repeat;
+                transition: .5s;
+            }
+
+                .button1 ul li a:hover {
+                    --t: 100%;
+                }
+
+.navbar1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+    .navbar1 ul {
+        list-style: none;
+    }
+
+        .navbar1 ul li {
+            display: inline-block;
+            padding: 20px;
+        }
+
+            .navbar1 ul li a {
+                font-size: 18px;
+                background: linear-gradient(#d298ff 0 0) bottom /var(--t, 0) 2px no-repeat;
+                transition: .5s;
+            }
+
+                .navbar1 ul li a:hover {
+                    --t: 100%;
+                }
+
+a {
+    text-decoration: none;
+}
+
+#links {
+    background-color: rgba(72, 24, 103, 0.59);
+    position: absolute;
+    padding: 10px 10px;
+    border-radius: 20px;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -40%);
+    line-height: 70px;
+}
+
+.header1 {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px
+}
+
+.hello {
+    font-size: 18px;
+    line-height: 100%;
+    text-indent: 10px;
+    text-align: center;
+    padding-right: 10px;
+}
+
+.blog {
+    background-color: rgba(72, 24, 103, 0.59);
+    position: relative;
+    padding: 10px 20px;
+    overflow-y: auto;
+    max-width: 700px;
+    height: 350px;
+    word-break: break-all;
+    border-radius: 10px;
+}
+
+    .blog::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    .blog::-webkit-scrollbar-thumb {
+        background-color: #FF00FF;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+.blogpost {
+    background-color: rgba(72, 24, 103, 0.59);
+    width: 700px;
+    height: 250px;
+    overflow-y: auto;
+    padding: 10px 10px;
+    border-radius: 10px;
+    transform: translate(0px, 10px)
+}
+
+    .blogpost::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    .blogpost::-webkit-scrollbar-thumb {
+        background-color: #FF00FF;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+.textcom {
+    font-size: 18px;
+    line-height: 100%;
+    margin: 2px;
+}
+
+.comment {
+    background-color: rgba(72, 24, 103, 0.59);
+    height: 150px;
+    overflow-y: auto;
+    padding: 10px 10px;
+    border-radius: 10px;
+    transform: translate(0%, 20%)
+}
+
+    .comment::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    .comment::-webkit-scrollbar-thumb {
+        background-color: #FF00FF;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+input,
+textarea {
+    overflow: auto;
+    vertical-align: top;
+    height: 18px;
+    margin: 0;
+    font-size: 14px;
+}
+
+.carousel {
+    position: relative;
+    left: -5%;
+    top: 45%;
+    padding-bottom: 20px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    left: 50%;
+    z-index: 15;
+    width: 80%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
+}
+
+    .carousel-indicators li {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 1px;
+        text-indent: -999px;
+        cursor: pointer;
+        border: 1px solid rgb(147, 112, 219);
+        border-radius: 10px;
+    }
+
+    .carousel-indicators .active {
+        width: 12px;
+        height: 12px;
+        margin: 0;
+        background-color: #FF00FF;
+    }
+
+.carousel-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    left: 20%;
+    top: 40%;
+}
+
+    .carousel-link:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+.carousel-inner {
+    width: 400px; /* Ширина карусели */
+    height: auto; /* Автоматическая высота */
+    overflow: hidden; /* Скрытие избыточного содержимого */
+    position: relative;
+    left: 40%;
+}
+
+    .carousel-inner > .item {
+        display: none; /* Скрытие слайдов по умолчанию */
+        text-align: center;
+        -webkit-transition: 0.6s ease-in-out left;
+        transition: 0.6s ease-in-out left;
+    }
+
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            display: block;
+            width: 400px; /* Ширина изображений */
+            height: auto; /* Автоматическая высота */
+            align-items: center;
+            border-radius: 10px;
+        }
+
+    .carousel-inner > .active,
+    .carousel-inner > .next,
+    .carousel-inner > .prev {
+        display: block;
+    }
+
+    .carousel-inner > .active {
+        left: 0;
+    }
+
+    .carousel-inner > .next,
+    .carousel-inner > .prev {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .carousel-inner > .next {
+        left: 100%;
+    }
+
+    .carousel-inner > .prev {
+        left: -100%;
+    }
+
+        .carousel-inner > .next.left,
+        .carousel-inner > .prev.right {
+            left: 0;
+        }
+
+    .carousel-inner > .active.left {
+        left: -100%;
+    }
+
+    .carousel-inner > .active.right {
+        left: 100%;
+    }
+
+/* Стили для элементов управления "Previous" и "Next" */
+.carousel-control-prev,
+.carousel-control-next {
+    width: auto; /* Автоматическая ширина */
+    background: none; /* Прозрачный фон */
+    border: none; /* Без границы */
+    outline: none; /* Без контура */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Без границы */
+    outline: none; /* Без контура */
+    width: 40px; /* Ширина иконки */
+    height: 40px; /* Высота иконки */
+}
+
+    /* Стили для стрелок управления "Previous" и "Next" */
+    .carousel-control-prev-icon:before,
+    .carousel-control-next-icon:before {
+        content: ''; /* Пустое содержимое */
+        position: absolute; /* Абсолютное позиционирование */
+        top: 48%; /* Положение сверху на 50% */
+        transform: translateY(-30%); /* Смещение по вертикали */
+        display: inline-block; /* Отображение как строчный блок */
+        border-top: 10px solid transparent; /* Верхняя граница */
+        border-bottom: 10px solid transparent; /* Нижняя граница */
+    }
+
+    .carousel-control-prev-icon:before {
+        left: 41%; /* Положение слева */
+        border-right: 10px solid #FF00FF; /* Правая граница */
+    }
+
+    .carousel-control-next-icon:before {
+        right: 20%; /* Положение справа */
+        border-left: 10px solid #FF00FF; /* Левая граница */
+    }
+
+
+@media screen and (min-width: 768px) {
+    .carousel-control .icon-prev,
+    .carousel-control .icon-next {
+        width: 30px;
+        height: 30px;
+        margin-top: -15px;
+        margin-left: -15px;
+        font-size: 30px;
+    }
+
+    .carousel-caption {
+        right: 20%;
+        left: 20%;
+        padding-bottom: 30px;
+    }
+
+    .carousel-indicators {
+        bottom: 20px;
+    }
+}
+
+.picture {
+    background-color: none;
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -40%)
 }
